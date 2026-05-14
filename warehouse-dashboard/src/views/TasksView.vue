@@ -2,13 +2,13 @@
   <div class="flex flex-col gap-6">
     <div class="flex justify-between items-center">
       <div>
-        <p class="text-slate-500 mt-1">Manage and track your operational tasks</p>
+        <p class="text-slate-500 dark:text-slate-400 mt-1">Manage and track your operational tasks</p>
       </div>
       <Button label="Create Task" icon="pi pi-plus" @click="openCreateModal" class="shadow-sm" />
     </div>
 
     <!-- Tasks Data Table -->
-    <Card class="border border-slate-100 shadow-sm">
+    <Card class="border border-slate-100 shadow-sm dark:bg-slate-800">
       <template #content>
         <DataTable :value="tasks" paginator :rows="10" dataKey="id" filterDisplay="menu" :filters="filters"
             :globalFilterFields="['name', 'assignee', 'status']" class="p-datatable-sm">
@@ -57,13 +57,13 @@
     <Dialog v-model:visible="showCreateModal" modal :header="isEditMode ? 'Edit Task' : 'Create New Task'" :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw', '641px': '90vw' }">
       <div class="flex flex-col gap-4 mt-2">
         <div class="flex flex-col gap-2">
-          <label for="taskName" class="font-medium text-slate-700">Task Name</label>
+          <label for="taskName" class="font-medium text-slate-700 dark:text-slate-200">Task Name</label>
           <InputText id="taskName" v-model="newTask.name" placeholder="Enter task name" />
         </div>
         
         <div class="grid grid-cols-2 gap-4">
           <div class="flex flex-col gap-2">
-            <label for="assignee" class="font-medium text-slate-700">Assignee</label>
+            <label for="assignee" class="font-medium text-slate-700 dark:text-slate-200">Assignee</label>
             <Dropdown id="assignee" v-model="newTask.assignee" :options="users" optionLabel="name" placeholder="Select Assignee" class="w-full">
               <template #value="slotProps">
                 <div v-if="slotProps.value" class="flex items-center gap-2">
@@ -81,13 +81,13 @@
             </Dropdown>
           </div>
           <div class="flex flex-col gap-2">
-            <label for="status" class="font-medium text-slate-700">Status</label>
+            <label for="status" class="font-medium text-slate-700 dark:text-slate-200">Status</label>
             <Dropdown id="status" v-model="newTask.status" :options="statuses" placeholder="Select Status" class="w-full" />
           </div>
         </div>
 
         <div class="flex flex-col gap-2">
-          <label for="components" class="font-medium text-slate-700">Allocate Components (Warehouse)</label>
+          <label for="components" class="font-medium text-slate-700 dark:text-slate-200">Allocate Components (Warehouse)</label>
           <MultiSelect id="components" v-model="newTask.components" :options="warehouseItems" optionLabel="name" placeholder="Select components" display="chip" class="w-full" />
         </div>
       </div>
@@ -101,35 +101,35 @@
     <!-- Task Details Modal -->
     <Dialog v-model:visible="showDetailsModal" modal header="Task Details" :style="{ width: '50vw' }" :breakpoints="{ '960px': '75vw', '641px': '90vw' }">
       <div v-if="selectedTask" class="flex flex-col gap-4 mt-2">
-        <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-lg border border-slate-100">
+        <div class="grid grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-100">
           <div>
-            <p class="text-sm text-slate-500 mb-1">Task ID</p>
-            <p class="font-medium text-slate-800">{{ selectedTask.id }}</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Task ID</p>
+            <p class="font-medium text-slate-800 dark:text-slate-100">{{ selectedTask.id }}</p>
           </div>
           <div>
-            <p class="text-sm text-slate-500 mb-1">Status</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Status</p>
             <Tag :value="selectedTask.status" :severity="getStatusSeverity(selectedTask.status)" />
           </div>
           <div class="col-span-2">
-            <p class="text-sm text-slate-500 mb-1">Task Name</p>
-            <p class="font-medium text-slate-800">{{ selectedTask.name }}</p>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-1">Task Name</p>
+            <p class="font-medium text-slate-800 dark:text-slate-100">{{ selectedTask.name }}</p>
           </div>
         </div>
 
         <div class="grid grid-cols-2 gap-4">
-          <div class="bg-white p-4 rounded-lg border border-slate-100">
-            <p class="text-sm text-slate-500 mb-2">Assignee</p>
+          <div class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-slate-100">
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">Assignee</p>
             <div class="flex items-center gap-3">
               <Avatar :image="`https://primefaces.org/cdn/primevue/images/avatar/${selectedTask.avatar}`" shape="circle" size="large" />
               <div class="flex flex-col">
-                <span class="font-medium text-slate-800">{{ selectedTask.assignee }}</span>
-                <span class="text-xs text-slate-500">Warehouse Operator</span>
+                <span class="font-medium text-slate-800 dark:text-slate-100">{{ selectedTask.assignee }}</span>
+                <span class="text-xs text-slate-500 dark:text-slate-400">Warehouse Operator</span>
               </div>
             </div>
           </div>
 
-          <div class="bg-white p-4 rounded-lg border border-slate-100">
-            <p class="text-sm text-slate-500 mb-2">Allocated Components</p>
+          <div class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-slate-100">
+            <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">Allocated Components</p>
             <div class="flex flex-wrap gap-2">
               <Tag v-for="comp in selectedTask.components" :key="comp" :value="comp" severity="info" rounded />
               <span v-if="!selectedTask.components || selectedTask.components.length === 0" class="text-sm text-slate-400 italic">No components allocated</span>

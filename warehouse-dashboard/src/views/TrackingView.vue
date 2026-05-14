@@ -2,65 +2,65 @@
   <div class="flex flex-col gap-6 max-w-[1400px]">
     <div class="flex justify-between items-center mb-2">
       <div>
-        <h1 class="text-[24px] font-bold text-[#1e293b]">Tracking Produk Terkirim</h1>
-        <p class="text-slate-500 mt-1 text-sm">Monitor pengiriman, garansi, dan riwayat perbaikan/reject produk Gitronik</p>
+        <h1 class="text-[24px] font-bold text-[#1e293b] dark:text-slate-100">Tracking Produk Terkirim</h1>
+        <p class="text-slate-500 dark:text-slate-400 mt-1 text-sm">Monitor pengiriman, garansi, dan riwayat perbaikan/reject produk Gitronik</p>
       </div>
       <Button label="Kirim Produk Baru" icon="pi pi-send" @click="openSendModal" class="shadow-sm" />
     </div>
 
     <!-- Dashboard Statistik -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-      <Card class="shadow-sm border-none rounded-xl" :pt="{ body: { class: 'p-4' }, content: { class: 'p-0' } }">
+      <Card class="shadow-sm border-none rounded-xl dark:bg-slate-800" :pt="{ body: { class: 'p-4' }, content: { class: 'p-0' } }">
         <template #content>
           <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-500">
               <i class="pi pi-box text-xl"></i>
             </div>
             <div class="flex flex-col">
-              <span class="text-xs font-semibold text-slate-500">Terkirim (Hari Ini)</span>
-              <span class="text-2xl font-bold text-slate-800">{{ stats.terkirimToday }}</span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Terkirim (Hari Ini)</span>
+              <span class="text-2xl font-bold text-slate-800 dark:text-slate-100">{{ stats.terkirimToday }}</span>
             </div>
           </div>
         </template>
       </Card>
       
-      <Card class="shadow-sm border-none rounded-xl" :pt="{ body: { class: 'p-4' }, content: { class: 'p-0' } }">
+      <Card class="shadow-sm border-none rounded-xl dark:bg-slate-800" :pt="{ body: { class: 'p-4' }, content: { class: 'p-0' } }">
         <template #content>
           <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-blue-500">
               <i class="pi pi-truck text-xl"></i>
             </div>
             <div class="flex flex-col">
-              <span class="text-xs font-semibold text-slate-500">Total Semua Terkirim</span>
-              <span class="text-2xl font-bold text-slate-800">{{ stats.totalTerkirim }}</span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Total Semua Terkirim</span>
+              <span class="text-2xl font-bold text-slate-800 dark:text-slate-100">{{ stats.totalTerkirim }}</span>
             </div>
           </div>
         </template>
       </Card>
 
-      <Card class="shadow-sm border-none rounded-xl" :pt="{ body: { class: 'p-4' }, content: { class: 'p-0' } }">
+      <Card class="shadow-sm border-none rounded-xl dark:bg-slate-800" :pt="{ body: { class: 'p-4' }, content: { class: 'p-0' } }">
         <template #content>
           <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-lg bg-red-50 flex items-center justify-center text-red-500">
               <i class="pi pi-exclamation-triangle text-xl"></i>
             </div>
             <div class="flex flex-col">
-              <span class="text-xs font-semibold text-slate-500">Total Barang Reject</span>
-              <span class="text-2xl font-bold text-slate-800">{{ stats.totalReject }}</span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Total Barang Reject</span>
+              <span class="text-2xl font-bold text-slate-800 dark:text-slate-100">{{ stats.totalReject }}</span>
             </div>
           </div>
         </template>
       </Card>
 
-      <Card class="shadow-sm border-none rounded-xl" :pt="{ body: { class: 'p-4' }, content: { class: 'p-0' } }">
+      <Card class="shadow-sm border-none rounded-xl dark:bg-slate-800" :pt="{ body: { class: 'p-4' }, content: { class: 'p-0' } }">
         <template #content>
           <div class="flex items-center gap-4">
             <div class="w-12 h-12 rounded-lg bg-amber-50 flex items-center justify-center text-amber-500">
               <i class="pi pi-wrench text-xl"></i>
             </div>
             <div class="flex flex-col">
-              <span class="text-xs font-semibold text-slate-500">Dalam Perbaikan</span>
-              <span class="text-2xl font-bold text-slate-800">{{ stats.totalPerbaikan }}</span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Dalam Perbaikan</span>
+              <span class="text-2xl font-bold text-slate-800 dark:text-slate-100">{{ stats.totalPerbaikan }}</span>
             </div>
           </div>
         </template>
@@ -68,7 +68,7 @@
     </div>
 
     <!-- Tabel Tracking -->
-    <Card class="shadow-sm border-none rounded-xl">
+    <Card class="shadow-sm border-none rounded-xl dark:bg-slate-800">
       <template #content>
         <DataTable :value="products" paginator :rows="10" dataKey="id" filterDisplay="menu" :filters="filters"
             :globalFilterFields="['sn', 'name', 'company.name']" class="p-datatable-sm" rowHover stripedRows>
@@ -87,13 +87,13 @@
             <Column header="Produk">
               <template #body="slotProps">
                 <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 border border-slate-200 rounded overflow-hidden flex shrink-0 items-center justify-center bg-slate-50 cursor-pointer hover:border-blue-400" @click="viewImage(slotProps.data)">
+                  <div class="w-10 h-10 border border-slate-200 dark:border-slate-600 rounded overflow-hidden flex shrink-0 items-center justify-center bg-slate-50 dark:bg-slate-900 cursor-pointer hover:border-blue-400" @click="viewImage(slotProps.data)">
                      <img v-if="slotProps.data.image" :src="slotProps.data.image" class="object-cover w-full h-full" />
                      <i v-else class="pi pi-image text-slate-300"></i>
                   </div>
                   <div class="flex flex-col">
-                    <span class="font-bold text-slate-800 text-sm">{{ slotProps.data.sn }}</span>
-                    <span class="text-xs text-slate-500">{{ slotProps.data.name }}</span>
+                    <span class="font-bold text-slate-800 dark:text-slate-100 text-sm">{{ slotProps.data.sn }}</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400">{{ slotProps.data.name }}</span>
                   </div>
                 </div>
               </template>
@@ -111,18 +111,18 @@
             <Column field="sendDate" header="Tanggal Kirim & Garansi">
               <template #body="slotProps">
                 <div class="flex flex-col gap-1">
-                  <span class="text-xs text-slate-600"><i class="pi pi-calendar mr-1"></i>{{ formatDate(slotProps.data.sendDate) }}</span>
+                  <span class="text-xs text-slate-600 dark:text-slate-300"><i class="pi pi-calendar mr-1"></i>{{ formatDate(slotProps.data.sendDate) }}</span>
                   <div class="flex items-center gap-1 mt-1">
                      <Tag :severity="getWarrantySeverity(slotProps.data).severity" class="text-[10px] px-2 py-0.5" rounded>
                        {{ getWarrantySeverity(slotProps.data).label }}
                      </Tag>
-                     <span class="text-[10px] text-slate-500 font-medium">({{ getWarrantySeverity(slotProps.data).remainingText }})</span>
+                     <span class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">({{ getWarrantySeverity(slotProps.data).remainingText }})</span>
                   </div>
                 </div>
               </template>
             </Column>
 
-            <Column field="totalItems" header="Qty" class="text-center font-semibold text-slate-700"></Column>
+            <Column field="totalItems" header="Qty" class="text-center font-semibold text-slate-700 dark:text-slate-200"></Column>
 
             <Column field="status" header="Status">
               <template #body="slotProps">
@@ -151,50 +151,50 @@
       <div class="flex flex-col gap-5 mt-2">
         <div class="grid grid-cols-2 gap-4">
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-semibold text-slate-700">Kode SN (Serial Number)</label>
+            <label class="text-sm font-semibold text-slate-700 dark:text-slate-200">Kode SN (Serial Number)</label>
             <InputText v-model="newProduct.sn" placeholder="Contoh: SN-GIT-001" />
           </div>
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-semibold text-slate-700">Nama Produk</label>
+            <label class="text-sm font-semibold text-slate-700 dark:text-slate-200">Nama Produk</label>
             <InputText v-model="newProduct.name" placeholder="Nama barang" />
           </div>
         </div>
 
         <div class="grid grid-cols-2 gap-4">
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-semibold text-slate-700">Tanggal Kirim</label>
+            <label class="text-sm font-semibold text-slate-700 dark:text-slate-200">Tanggal Kirim</label>
             <InputText type="date" v-model="newProduct.sendDate" />
           </div>
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-semibold text-slate-700">Durasi Garansi (Bulan)</label>
+            <label class="text-sm font-semibold text-slate-700 dark:text-slate-200">Durasi Garansi (Bulan)</label>
             <InputNumber v-model="newProduct.warrantyMonths" inputId="minmax-buttons" mode="decimal" showButtons :min="1" />
           </div>
         </div>
 
         <div class="grid grid-cols-2 gap-4">
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-semibold text-slate-700">Jumlah Barang (Qty)</label>
+            <label class="text-sm font-semibold text-slate-700 dark:text-slate-200">Jumlah Barang (Qty)</label>
             <InputNumber v-model="newProduct.totalItems" :min="1" />
           </div>
           <div class="flex flex-col gap-2">
-            <label class="text-sm font-semibold text-slate-700">URL Gambar Produk (Opsional)</label>
+            <label class="text-sm font-semibold text-slate-700 dark:text-slate-200">URL Gambar Produk (Opsional)</label>
             <InputText v-model="newProduct.image" placeholder="https://..." />
           </div>
         </div>
 
-        <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 flex flex-col gap-3">
-          <h3 class="font-semibold text-slate-700 text-sm">Data Perusahaan (Tujuan)</h3>
+        <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-100 flex flex-col gap-3">
+          <h3 class="font-semibold text-slate-700 dark:text-slate-200 text-sm">Data Perusahaan (Tujuan)</h3>
           <div class="grid grid-cols-2 gap-3">
             <div class="flex flex-col gap-2">
-               <label class="text-xs text-slate-600">Nama Company</label>
+               <label class="text-xs text-slate-600 dark:text-slate-300">Nama Company</label>
                <InputText v-model="newProduct.company.name" placeholder="PT. ABC" />
             </div>
             <div class="flex flex-col gap-2">
-               <label class="text-xs text-slate-600">Nama PIC</label>
+               <label class="text-xs text-slate-600 dark:text-slate-300">Nama PIC</label>
                <InputText v-model="newProduct.company.pic" placeholder="Bpk. Budi" />
             </div>
             <div class="col-span-2 flex flex-col gap-2">
-               <label class="text-xs text-slate-600">Alamat</label>
+               <label class="text-xs text-slate-600 dark:text-slate-300">Alamat</label>
                <InputText v-model="newProduct.company.address" placeholder="Jl. Raya No 1..." />
             </div>
           </div>
@@ -216,7 +216,7 @@
         </div>
         
         <div class="flex flex-col gap-2">
-          <label class="font-semibold text-slate-700 text-sm">Catatan / Alasan Reject</label>
+          <label class="font-semibold text-slate-700 dark:text-slate-200 text-sm">Catatan / Alasan Reject</label>
           <Textarea v-model="rejectNote" rows="4" placeholder="Contoh: Barang tidak menyala saat di-test..." />
         </div>
       </div>
@@ -229,10 +229,10 @@
     <!-- Modal Riwayat Reject -->
     <Dialog v-model:visible="showHistoryModal" modal header="Riwayat Reject & Perbaikan" :style="{ width: '40vw' }" :breakpoints="{ '960px': '75vw', '641px': '90vw' }">
       <div v-if="selectedProduct" class="flex flex-col gap-4 mt-2">
-        <div class="flex items-center justify-between bg-slate-50 p-3 rounded border border-slate-200">
+        <div class="flex items-center justify-between bg-slate-50 dark:bg-slate-900 p-3 rounded border border-slate-200 dark:border-slate-600">
           <div>
-             <div class="font-bold text-slate-800">{{ selectedProduct.sn }}</div>
-             <div class="text-sm text-slate-500">{{ selectedProduct.name }}</div>
+             <div class="font-bold text-slate-800 dark:text-slate-100">{{ selectedProduct.sn }}</div>
+             <div class="text-sm text-slate-500 dark:text-slate-400">{{ selectedProduct.name }}</div>
           </div>
           <div class="text-right">
              <div class="text-xs text-slate-400">Total Reject</div>
@@ -249,7 +249,7 @@
                 <Tag severity="danger" :value="hist.statusName" class="text-[10px] px-1 py-0"></Tag>
                 <span class="text-xs text-slate-400">{{ formatDate(hist.date) }}</span>
              </div>
-             <p class="text-sm text-slate-700 bg-slate-50 p-2 rounded">{{ hist.note }}</p>
+             <p class="text-sm text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-slate-900 p-2 rounded">{{ hist.note }}</p>
           </div>
         </div>
       </div>
@@ -258,21 +258,21 @@
     <!-- Modal Company Profile -->
     <Dialog v-model:visible="showCompanyModal" modal header="Profil Perusahaan (Customer)" :style="{ width: '30vw' }">
       <div v-if="selectedCompany" class="flex flex-col gap-4 mt-2">
-        <div class="flex flex-col items-center justify-center p-4 bg-slate-50 rounded-lg">
+        <div class="flex flex-col items-center justify-center p-4 bg-slate-50 dark:bg-slate-900 rounded-lg">
            <div class="w-16 h-16 rounded-full bg-blue-100 text-blue-500 flex items-center justify-center text-2xl font-bold mb-3">
              {{ selectedCompany.name.charAt(0) }}
            </div>
-           <h2 class="font-bold text-lg text-slate-800">{{ selectedCompany.name }}</h2>
-           <span class="text-sm text-slate-500">Customer Gitronik</span>
+           <h2 class="font-bold text-lg text-slate-800 dark:text-slate-100">{{ selectedCompany.name }}</h2>
+           <span class="text-sm text-slate-500 dark:text-slate-400">Customer Gitronik</span>
         </div>
         <div class="flex flex-col gap-2">
           <div class="flex justify-between border-b border-slate-100 py-2">
-            <span class="text-slate-500 text-sm">PIC</span>
-            <span class="font-medium text-slate-800 text-sm">{{ selectedCompany.pic }}</span>
+            <span class="text-slate-500 dark:text-slate-400 text-sm">PIC</span>
+            <span class="font-medium text-slate-800 dark:text-slate-100 text-sm">{{ selectedCompany.pic }}</span>
           </div>
           <div class="flex justify-between border-b border-slate-100 py-2">
-            <span class="text-slate-500 text-sm">Alamat</span>
-            <span class="font-medium text-slate-800 text-sm text-right max-w-[60%]">{{ selectedCompany.address }}</span>
+            <span class="text-slate-500 dark:text-slate-400 text-sm">Alamat</span>
+            <span class="font-medium text-slate-800 dark:text-slate-100 text-sm text-right max-w-[60%]">{{ selectedCompany.address }}</span>
           </div>
         </div>
       </div>

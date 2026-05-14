@@ -1,73 +1,73 @@
 <template>
   <div class="flex flex-col gap-6 max-w-[1400px]">
-    <h1 class="text-[26px] font-bold text-[#1e293b] mb-2">Hello Super User!!</h1>
+    <h1 class="text-[26px] font-bold text-[#1e293b] dark:text-slate-100 mb-2">Hello Super User!!</h1>
 
     <!-- Scorecards -->
     <div class="grid grid-cols-1 md:grid-cols-5 gap-5">
-      <Card class="shadow-sm border-none rounded-xl" :pt="{ body: { class: 'p-5' }, content: { class: 'p-0' } }">
+      <Card class="shadow-sm border-none rounded-xl dark:bg-slate-800" :pt="{ body: { class: 'p-5' }, content: { class: 'p-0' } }">
         <template #content>
           <div class="flex items-start justify-between">
             <div class="flex flex-col gap-1">
-              <span class="text-[13px] font-semibold text-slate-500 mb-2">On Board</span>
-              <span class="text-3xl font-bold text-[#1e293b]">128</span>
+              <span class="text-[13px] font-semibold text-slate-500 dark:text-slate-400 mb-2">On Board</span>
+              <span class="text-3xl font-bold text-[#1e293b] dark:text-slate-100">128</span>
             </div>
-            <div class="w-11 h-11 rounded-lg bg-[#eff6ff] flex items-center justify-center text-[#3b82f6]">
+            <div class="w-11 h-11 rounded-lg bg-[#eff6ff] dark:bg-slate-700 flex items-center justify-center text-[#3b82f6]">
               <i class="pi pi-user text-xl"></i>
             </div>
           </div>
         </template>
       </Card>
 
-      <Card class="shadow-sm border-none rounded-xl" :pt="{ body: { class: 'p-5' }, content: { class: 'p-0' } }">
+      <Card class="shadow-sm border-none rounded-xl dark:bg-slate-800" :pt="{ body: { class: 'p-5' }, content: { class: 'p-0' } }">
         <template #content>
           <div class="flex items-start justify-between">
             <div class="flex flex-col gap-1">
-              <span class="text-[13px] font-semibold text-slate-500 mb-2">Pekerja</span>
-              <span class="text-3xl font-bold text-[#1e293b]">373</span>
+              <span class="text-[13px] font-semibold text-slate-500 dark:text-slate-400 mb-2">Pekerja</span>
+              <span class="text-3xl font-bold text-[#1e293b] dark:text-slate-100">373</span>
             </div>
-            <div class="w-11 h-11 rounded-lg bg-[#eff6ff] flex items-center justify-center text-[#3b82f6]">
+            <div class="w-11 h-11 rounded-lg bg-[#eff6ff] dark:bg-slate-700 flex items-center justify-center text-[#3b82f6]">
               <i class="pi pi-users text-xl"></i>
             </div>
           </div>
         </template>
       </Card>
 
-      <Card class="shadow-sm border-none rounded-xl" :pt="{ body: { class: 'p-5' }, content: { class: 'p-0' } }">
+      <Card class="shadow-sm border-none rounded-xl dark:bg-slate-800" :pt="{ body: { class: 'p-5' }, content: { class: 'p-0' } }">
         <template #content>
           <div class="flex items-start justify-between">
             <div class="flex flex-col gap-1">
-              <span class="text-[13px] font-semibold text-slate-500 mb-2">Vendor</span>
-              <span class="text-3xl font-bold text-[#1e293b]">43</span>
+              <span class="text-[13px] font-semibold text-slate-500 dark:text-slate-400 mb-2">Vendor</span>
+              <span class="text-3xl font-bold text-[#1e293b] dark:text-slate-100">43</span>
             </div>
-            <div class="w-11 h-11 rounded-lg bg-[#eff6ff] flex items-center justify-center text-[#3b82f6]">
+            <div class="w-11 h-11 rounded-lg bg-[#eff6ff] dark:bg-slate-700 flex items-center justify-center text-[#3b82f6]">
               <i class="pi pi-wrench text-xl transform -scale-x-100"></i>
             </div>
           </div>
         </template>
       </Card>
 
-      <Card class="shadow-sm border-none rounded-xl" :pt="{ body: { class: 'p-5' }, content: { class: 'p-0' } }">
+      <Card class="shadow-sm border-none rounded-xl dark:bg-slate-800" :pt="{ body: { class: 'p-5' }, content: { class: 'p-0' } }">
         <template #content>
           <div class="flex items-start justify-between">
             <div class="flex flex-col gap-1">
-              <span class="text-[13px] font-semibold text-slate-500 mb-2">Area</span>
-              <span class="text-3xl font-bold text-[#1e293b]">3</span>
+              <span class="text-[13px] font-semibold text-slate-500 dark:text-slate-400 mb-2">Area</span>
+              <span class="text-3xl font-bold text-[#1e293b] dark:text-slate-100">3</span>
             </div>
-            <div class="w-11 h-11 rounded-lg bg-[#eff6ff] flex items-center justify-center text-[#3b82f6]">
+            <div class="w-11 h-11 rounded-lg bg-[#eff6ff] dark:bg-slate-700 flex items-center justify-center text-[#3b82f6]">
               <i class="pi pi-sitemap text-xl"></i>
             </div>
           </div>
         </template>
       </Card>
 
-      <Card class="shadow-sm border-none rounded-xl" :pt="{ body: { class: 'p-5' }, content: { class: 'p-0' } }">
+      <Card class="shadow-sm border-none rounded-xl dark:bg-slate-800" :pt="{ body: { class: 'p-5' }, content: { class: 'p-0' } }">
         <template #content>
           <div class="flex items-start justify-between">
             <div class="flex flex-col gap-1">
-              <span class="text-[13px] font-semibold text-slate-500 mb-2">Gate</span>
-              <span class="text-3xl font-bold text-[#1e293b]">8</span>
+              <span class="text-[13px] font-semibold text-slate-500 dark:text-slate-400 mb-2">Gate</span>
+              <span class="text-3xl font-bold text-[#1e293b] dark:text-slate-100">8</span>
             </div>
-            <div class="w-11 h-11 rounded-lg bg-[#eff6ff] flex items-center justify-center text-[#3b82f6]">
+            <div class="w-11 h-11 rounded-lg bg-[#eff6ff] dark:bg-slate-700 flex items-center justify-center text-[#3b82f6]">
               <i class="pi pi-sign-in text-xl"></i>
             </div>
           </div>
@@ -78,11 +78,11 @@
     <!-- Charts Row -->
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-5 mt-1">
       <!-- Line Chart -->
-      <Card class="lg:col-span-3 shadow-sm border-none rounded-xl pt-1">
+      <Card class="lg:col-span-3 shadow-sm border-none rounded-xl pt-1 dark:bg-slate-800">
         <template #title>
-          <div class="flex justify-between items-center mb-1 text-[15px] font-semibold text-[#1e293b]">
+          <div class="flex justify-between items-center mb-1 text-[15px] font-semibold text-[#1e293b] dark:text-slate-100">
             <span>Jumlah Pekerja Per Hari</span>
-            <div class="flex items-center gap-2 px-3 py-1.5 border border-slate-200 rounded text-xs font-normal text-slate-500 cursor-pointer hover:bg-slate-50">
+            <div class="flex items-center gap-2 px-3 py-1.5 border border-slate-200 dark:border-slate-600 rounded text-xs font-normal text-slate-500 dark:text-slate-400 cursor-pointer hover:bg-slate-50 dark:bg-slate-900">
               02/05/2026 - 02/19/2026
               <i class="pi pi-calendar text-[10px] text-slate-400"></i>
             </div>
@@ -96,11 +96,11 @@
       </Card>
       
       <!-- Pie Chart -->
-      <Card class="lg:col-span-2 shadow-sm border-none rounded-xl pt-1">
+      <Card class="lg:col-span-2 shadow-sm border-none rounded-xl pt-1 dark:bg-slate-800">
         <template #title>
           <div class="flex flex-col items-center justify-center mb-2">
-            <span class="text-[15px] font-semibold text-[#1e293b] mb-3">Pekerja Per Area</span>
-            <div class="flex items-center gap-2 px-3 py-1.5 border border-slate-200 rounded text-xs font-normal text-slate-500 mb-2 cursor-pointer hover:bg-slate-50">
+            <span class="text-[15px] font-semibold text-[#1e293b] dark:text-slate-100 mb-3">Pekerja Per Area</span>
+            <div class="flex items-center gap-2 px-3 py-1.5 border border-slate-200 dark:border-slate-600 rounded text-xs font-normal text-slate-500 dark:text-slate-400 mb-2 cursor-pointer hover:bg-slate-50 dark:bg-slate-900">
               02/05/2026 - 02/06/2026
               <i class="pi pi-calendar text-[10px] text-slate-400"></i>
             </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-6">
     <div class="flex justify-between items-center">
-      <p class="text-slate-500 mt-1">Master list of finished products and serial numbers tracking</p>
+      <p class="text-slate-500 dark:text-slate-400 mt-1">Master list of finished products and serial numbers tracking</p>
       <div class="flex gap-2">
         <Button label="Create Product" icon="pi pi-plus" class="shadow-sm font-bold" @click="showCreateModal = true" />
         <Button label="Generate SN" icon="pi pi-barcode" severity="success" class="shadow-sm font-bold" @click="showSnModal = true" />
@@ -9,7 +9,7 @@
     </div>
 
     <!-- Products Master List -->
-    <Card class="border border-slate-100 shadow-sm">
+    <Card class="border border-slate-100 shadow-sm dark:bg-slate-800">
       <template #content>
         <DataTable v-model:expandedRows="expandedRows" :value="products" dataKey="id" class="p-datatable-sm" stripedRows hoverHover>
             <Column expander style="width: 5rem" />
@@ -18,7 +18,7 @@
             <Column field="category" header="Category" sortable></Column>
             <Column field="inventory" header="In Stock" sortable>
                 <template #body="{ data }">
-                    <span class="font-bold text-slate-800">{{ data.inventory }}</span> units
+                    <span class="font-bold text-slate-800 dark:text-slate-100">{{ data.inventory }}</span> units
                 </template>
             </Column>
             <Column field="status" header="Production Status">
@@ -28,25 +28,25 @@
             </Column>
             
             <template #expansion="slotProps">
-                <div class="p-6 bg-slate-50 border border-slate-100 rounded-lg mx-4 my-2">
-                    <h4 class="font-bold text-lg mb-4 text-slate-800">Product Details: {{ slotProps.data.name }}</h4>
+                <div class="p-6 bg-slate-50 dark:bg-slate-900 border border-slate-100 rounded-lg mx-4 my-2">
+                    <h4 class="font-bold text-lg mb-4 text-slate-800 dark:text-slate-100">Product Details: {{ slotProps.data.name }}</h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="bg-white p-4 rounded shadow-sm border border-slate-100">
-                            <span class="block text-slate-500 text-sm mb-1">Warranty Status</span>
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded shadow-sm border border-slate-100">
+                            <span class="block text-slate-500 dark:text-slate-400 text-sm mb-1">Warranty Status</span>
                             <div class="flex items-center gap-2">
                                 <i class="pi pi-shield text-green-500 text-xl"></i>
-                                <span class="font-bold text-slate-800 text-lg">{{ slotProps.data.warrantyMonths }} Months</span>
+                                <span class="font-bold text-slate-800 dark:text-slate-100 text-lg">{{ slotProps.data.warrantyMonths }} Months</span>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow-sm border border-slate-100">
-                            <span class="block text-slate-500 text-sm mb-1">Total Returns</span>
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded shadow-sm border border-slate-100">
+                            <span class="block text-slate-500 dark:text-slate-400 text-sm mb-1">Total Returns</span>
                             <div class="flex items-center gap-2">
                                 <i class="pi pi-refresh text-orange-500 text-xl"></i>
-                                <span class="font-bold text-slate-800 text-lg">{{ slotProps.data.returnCount }}</span>
+                                <span class="font-bold text-slate-800 dark:text-slate-100 text-lg">{{ slotProps.data.returnCount }}</span>
                             </div>
                         </div>
-                        <div class="bg-white p-4 rounded shadow-sm border border-slate-100">
-                            <span class="block text-slate-500 text-sm mb-1">Recent Serial Numbers</span>
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded shadow-sm border border-slate-100">
+                            <span class="block text-slate-500 dark:text-slate-400 text-sm mb-1">Recent Serial Numbers</span>
                             <div class="flex flex-wrap gap-2 mt-1">
                                 <Tag v-for="sn in slotProps.data.recentSn" :key="sn" :value="sn" severity="secondary" />
                             </div>
@@ -62,12 +62,12 @@
     <Dialog v-model:visible="showSnModal" modal header="Generate Serial Numbers" :style="{ width: '400px' }">
         <div class="flex flex-col gap-4 mt-2">
             <div class="flex flex-col gap-2">
-                <label for="productSelect" class="font-medium text-slate-700">Select Product</label>
+                <label for="productSelect" class="font-medium text-slate-700 dark:text-slate-200">Select Product</label>
                 <Dropdown id="productSelect" v-model="selectedProduct" :options="products" optionLabel="name" placeholder="Choose a product" class="w-full" />
             </div>
             
             <div class="flex flex-col gap-2">
-                <label for="snQuantity" class="font-medium text-slate-700">Quantity to Generate</label>
+                <label for="snQuantity" class="font-medium text-slate-700 dark:text-slate-200">Quantity to Generate</label>
                 <InputNumber id="snQuantity" v-model="snQuantity" showButtons :min="1" :max="100" class="w-full" />
             </div>
 
@@ -75,8 +75,8 @@
                 <h5 class="font-medium text-green-600 mb-2 flex items-center gap-2">
                     <i class="pi pi-check-circle"></i> Successfully Generated {{ generatedSns.length }} SNs
                 </h5>
-                <div class="max-h-32 overflow-y-auto bg-slate-50 p-2 rounded border border-slate-200">
-                    <div v-for="sn in generatedSns" :key="sn" class="text-sm font-mono text-slate-700 py-1 border-b border-slate-100 last:border-0">
+                <div class="max-h-32 overflow-y-auto bg-slate-50 dark:bg-slate-900 p-2 rounded border border-slate-200 dark:border-slate-600">
+                    <div v-for="sn in generatedSns" :key="sn" class="text-sm font-mono text-slate-700 dark:text-slate-200 py-1 border-b border-slate-100 last:border-0">
                         {{ sn }}
                     </div>
                 </div>
@@ -92,20 +92,20 @@
     <Dialog v-model:visible="showCreateModal" modal header="Create New Product" :style="{ width: '400px' }">
         <div class="flex flex-col gap-4 mt-2">
             <div class="flex flex-col gap-2">
-                <label for="newProdName" class="font-medium text-slate-700">Product Name</label>
+                <label for="newProdName" class="font-medium text-slate-700 dark:text-slate-200">Product Name</label>
                 <InputText id="newProdName" v-model="newProduct.name" placeholder="Enter product name" />
             </div>
             <div class="flex flex-col gap-2">
-                <label for="newProdCategory" class="font-medium text-slate-700">Category</label>
+                <label for="newProdCategory" class="font-medium text-slate-700 dark:text-slate-200">Category</label>
                 <Dropdown id="newProdCategory" v-model="newProduct.category" :options="['Servers', 'Desktops', 'IoT Devices', 'Networking']" placeholder="Select category" class="w-full" />
             </div>
             <div class="grid grid-cols-2 gap-4">
                 <div class="flex flex-col gap-2">
-                    <label for="newProdInventory" class="font-medium text-slate-700">Initial Stock</label>
+                    <label for="newProdInventory" class="font-medium text-slate-700 dark:text-slate-200">Initial Stock</label>
                     <InputNumber id="newProdInventory" v-model="newProduct.inventory" class="w-full" />
                 </div>
                 <div class="flex flex-col gap-2">
-                    <label for="newProdWarranty" class="font-medium text-slate-700">Warranty (Months)</label>
+                    <label for="newProdWarranty" class="font-medium text-slate-700 dark:text-slate-200">Warranty (Months)</label>
                     <InputNumber id="newProdWarranty" v-model="newProduct.warrantyMonths" class="w-full" />
                 </div>
             </div>
