@@ -74,7 +74,11 @@
             <i class="pi pi-bars text-xl"></i>
           </button>
           <div class="flex items-center gap-3">
-            <img src="/Logo Gitronik.png" alt="Gitronik Logo" class="h-10 object-contain" />
+            <img
+              src="/Logo Gitronik.png"
+              alt="Gitronik Logo"
+              class="h-10 object-contain"
+            />
           </div>
         </div>
 
@@ -87,11 +91,6 @@
               class="pi text-[1.1rem]"
               :class="isDark ? 'pi-sun' : 'pi-moon'"
             ></i>
-          </button>
-          <button
-            class="w-10 h-10 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors"
-          >
-            <i class="pi pi-user text-[1.1rem]"></i>
           </button>
         </div>
       </header>
