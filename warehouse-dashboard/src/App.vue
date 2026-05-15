@@ -39,26 +39,6 @@
             OPERATIONS
           </h3>
           <div class="space-y-1">
-            <router-link to="/tasks" class="nav-link" active-class="nav-active">
-              <i class="pi pi-check-square text-[1.1rem]"></i>
-              <span>Tasks</span>
-            </router-link>
-            <router-link
-              to="/warehouse"
-              class="nav-link"
-              active-class="nav-active"
-            >
-              <i class="pi pi-database text-[1.1rem]"></i>
-              <span>Warehouse</span>
-            </router-link>
-            <router-link
-              to="/products"
-              class="nav-link"
-              active-class="nav-active"
-            >
-              <i class="pi pi-tags text-[1.1rem]"></i>
-              <span>Products & SN</span>
-            </router-link>
             <router-link
               to="/rejects"
               class="nav-link"
@@ -94,33 +74,7 @@
             <i class="pi pi-bars text-xl"></i>
           </button>
           <div class="flex items-center gap-3">
-            <div class="text-[#38bdf8]">
-              <!-- Blue abstract logo icon from image -->
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="M12 3v18M8 8h8M12 3a5 5 0 0 1 5 5M12 21a5 5 0 0 0-5-5"
-                ></path>
-              </svg>
-            </div>
-            <div class="flex flex-col">
-              <span
-                class="text-[15px] font-semibold text-slate-700 dark:text-slate-200 leading-tight"
-                >Gate System</span
-              >
-              <span
-                class="text-[10px] text-slate-400 dark:text-slate-500 font-medium tracking-wide"
-                >MOR V - Integrated Terminal Surabaya - PERAK</span
-              >
-            </div>
+            <img src="/Logo Gitronik.png" alt="Gitronik Logo" class="h-10 object-contain" />
           </div>
         </div>
 

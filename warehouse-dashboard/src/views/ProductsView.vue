@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-6">
+  <div class="flex flex-col gap-6 w-full">
     <div class="flex justify-between items-center">
       <p class="text-slate-500 dark:text-slate-400 mt-1">Master list of finished products and serial numbers tracking</p>
       <div class="flex gap-2">

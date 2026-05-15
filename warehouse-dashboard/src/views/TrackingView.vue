@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-6 max-w-[1400px]">
+  <div class="flex flex-col gap-6 w-full">
     <div class="flex justify-between items-center mb-2">
       <div>
         <h1 class="text-[24px] font-bold text-[#1e293b] dark:text-slate-100">Tracking Produk Terkirim</h1>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-6 max-w-[1400px]">
+  <div class="flex flex-col gap-6 w-full">
     <h1 class="text-[26px] font-bold text-[#1e293b] dark:text-slate-100 mb-2">Hello Super User!!</h1>
 
     <!-- Scorecards -->

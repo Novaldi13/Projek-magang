@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-6">
+  <div class="flex flex-col gap-6 w-full">
     <div class="flex justify-between items-center">
       <div>
         <p class="text-slate-500 dark:text-slate-400 mt-1">Manage and monitor reject items between production and warehouse</p>
