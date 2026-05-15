@@ -1,78 +1,142 @@
 <template>
-  <div class="flex h-screen w-full bg-[#f8f9fa] dark:bg-slate-900 overflow-hidden text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+  <div
+    class="flex h-screen w-full bg-[#f8f9fa] dark:bg-slate-900 overflow-hidden text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300"
+  >
     <!-- Sidebar -->
-    <aside class="w-[260px] bg-white dark:bg-slate-800 flex flex-col shrink-0 overflow-y-auto border-r border-transparent dark:border-slate-700 transition-colors duration-300">
+    <aside
+      :class="[
+        'bg-white dark:bg-slate-800 flex flex-col shrink-0 overflow-y-auto border-r border-transparent dark:border-slate-700 transition-all duration-300 ease-in-out',
+        isSidebarOpen
+          ? 'w-[260px] opacity-100 translate-x-0'
+          : 'w-0 opacity-0 -translate-x-full pointer-events-none',
+      ]"
+    >
       <nav class="flex-1 px-4 py-8 space-y-8">
-        
         <!-- HOME Group -->
         <div>
-          <h3 class="px-4 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">HOME</h3>
+          <h3
+            class="px-4 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3"
+          >
+            HOME
+          </h3>
           <div class="space-y-1">
-            <router-link to="/" class="nav-link" exact-active-class="nav-active">
-              <i class="pi pi-home text-[1.1rem]"></i> 
+            <router-link
+              to="/"
+              class="nav-link"
+              exact-active-class="nav-active"
+            >
+              <i class="pi pi-home text-[1.1rem]"></i>
               <span>Dashboard</span>
             </router-link>
-
           </div>
         </div>
 
         <!-- OPERATIONS Group -->
         <div>
-          <h3 class="px-4 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">OPERATIONS</h3>
+          <h3
+            class="px-4 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3"
+          >
+            OPERATIONS
+          </h3>
           <div class="space-y-1">
             <router-link to="/tasks" class="nav-link" active-class="nav-active">
-              <i class="pi pi-check-square text-[1.1rem]"></i> 
+              <i class="pi pi-check-square text-[1.1rem]"></i>
               <span>Tasks</span>
             </router-link>
-            <router-link to="/warehouse" class="nav-link" active-class="nav-active">
-              <i class="pi pi-database text-[1.1rem]"></i> 
+            <router-link
+              to="/warehouse"
+              class="nav-link"
+              active-class="nav-active"
+            >
+              <i class="pi pi-database text-[1.1rem]"></i>
               <span>Warehouse</span>
             </router-link>
-            <router-link to="/products" class="nav-link" active-class="nav-active">
-              <i class="pi pi-tags text-[1.1rem]"></i> 
+            <router-link
+              to="/products"
+              class="nav-link"
+              active-class="nav-active"
+            >
+              <i class="pi pi-tags text-[1.1rem]"></i>
               <span>Products & SN</span>
             </router-link>
-            <router-link to="/rejects" class="nav-link" active-class="nav-active">
-              <i class="pi pi-exclamation-triangle text-[1.1rem]"></i> 
+            <router-link
+              to="/rejects"
+              class="nav-link"
+              active-class="nav-active"
+            >
+              <i class="pi pi-exclamation-triangle text-[1.1rem]"></i>
               <span>Barang Reject</span>
             </router-link>
-            <router-link to="/tracking" class="nav-link" active-class="nav-active">
-              <i class="pi pi-map-marker text-[1.1rem]"></i> 
+            <router-link
+              to="/tracking"
+              class="nav-link"
+              active-class="nav-active"
+            >
+              <i class="pi pi-map-marker text-[1.1rem]"></i>
               <span>Tracking Produk</span>
             </router-link>
           </div>
         </div>
-
       </nav>
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 flex flex-col h-screen overflow-hidden">
       <!-- Header -->
-      <header class="h-[70px] bg-white dark:bg-slate-800 flex items-center px-6 shadow-[0_2px_15px_-5px_rgba(0,0,0,0.05)] shrink-0 justify-between z-10 border-b border-transparent dark:border-slate-700 transition-colors duration-300">
+      <header
+        class="h-[70px] bg-white dark:bg-slate-800 flex items-center px-6 shadow-[0_2px_15px_-5px_rgba(0,0,0,0.05)] shrink-0 justify-between z-10 border-b border-transparent dark:border-slate-700 transition-colors duration-300"
+      >
         <div class="flex items-center gap-4">
-          <button class="w-8 h-8 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors">
+          <button
+            class="w-8 h-8 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-md transition-colors"
+            @click="toggleSidebar"
+          >
             <i class="pi pi-bars text-xl"></i>
           </button>
           <div class="flex items-center gap-3">
             <div class="text-[#38bdf8]">
               <!-- Blue abstract logo icon from image -->
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3v18M8 8h8M12 3a5 5 0 0 1 5 5M12 21a5 5 0 0 0-5-5"></path>
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 3v18M8 8h8M12 3a5 5 0 0 1 5 5M12 21a5 5 0 0 0-5-5"
+                ></path>
               </svg>
             </div>
             <div class="flex flex-col">
-              <span class="text-[15px] font-semibold text-slate-700 dark:text-slate-200 leading-tight">Gate System</span>
-              <span class="text-[10px] text-slate-400 dark:text-slate-500 font-medium tracking-wide">MOR V - Integrated Terminal Surabaya - PERAK</span>
+              <span
+                class="text-[15px] font-semibold text-slate-700 dark:text-slate-200 leading-tight"
+                >Gate System</span
+              >
+              <span
+                class="text-[10px] text-slate-400 dark:text-slate-500 font-medium tracking-wide"
+                >MOR V - Integrated Terminal Surabaya - PERAK</span
+              >
             </div>
           </div>
         </div>
-        
+
         <div class="flex items-center gap-4">
-          <button @click="toggleTheme" class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-            <i class="pi text-[1.1rem]" :class="isDark ? 'pi-sun' : 'pi-moon'"></i>
+          <button
+            @click="toggleTheme"
+            class="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-600 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+          >
+            <i
+              class="pi text-[1.1rem]"
+              :class="isDark ? 'pi-sun' : 'pi-moon'"
+            ></i>
           </button>
-          <button class="w-10 h-10 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors">
+          <button
+            class="w-10 h-10 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-full transition-colors"
+          >
             <i class="pi pi-user text-[1.1rem]"></i>
           </button>
         </div>
@@ -87,28 +151,37 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue";
 
 const isDark = ref(false);
+const isSidebarOpen = ref(true);
 
 const toggleTheme = () => {
   isDark.value = !isDark.value;
   updateTheme();
 };
 
+const toggleSidebar = () => {
+  isSidebarOpen.value = !isSidebarOpen.value;
+};
+
 const updateTheme = () => {
   if (isDark.value) {
-    document.documentElement.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
   } else {
-    document.documentElement.classList.remove('dark');
-    localStorage.setItem('theme', 'light');
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
   }
 };
 
 onMounted(() => {
   // Check local storage or system preference on mount
-  if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  if (
+    localStorage.getItem("theme") === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
     isDark.value = true;
   } else {
     isDark.value = false;
