@@ -59,7 +59,7 @@
     </Card>
 
     <!-- Generate SN Modal -->
-    <Dialog v-model:visible="showSnModal" modal header="Generate Serial Numbers" :style="{ width: '400px' }">
+    <Dialog :draggable="false" v-model:visible="showSnModal" modal header="Generate Serial Numbers" :style="{ width: '400px' }">
         <div class="flex flex-col gap-4 mt-2">
             <div class="flex flex-col gap-2">
                 <label for="productSelect" class="font-medium text-slate-700 dark:text-slate-200">Select Product</label>
@@ -89,7 +89,7 @@
     </Dialog>
 
     <!-- Create Product Modal -->
-    <Dialog v-model:visible="showCreateModal" modal header="Create New Product" :style="{ width: '400px' }">
+    <Dialog :draggable="false" v-model:visible="showCreateModal" modal header="Create New Product" :style="{ width: '400px' }">
         <div class="flex flex-col gap-4 mt-2">
             <div class="flex flex-col gap-2">
                 <label for="newProdName" class="font-medium text-slate-700 dark:text-slate-200">Product Name</label>

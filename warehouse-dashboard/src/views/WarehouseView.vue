@@ -59,7 +59,7 @@
     </Card>
 
     <!-- Modal Tambah Customer -->
-    <Dialog v-model:visible="showCustomerModal" modal header="Tambah Customer Baru" :style="{ width: '400px' }">
+    <Dialog :draggable="false" v-model:visible="showCustomerModal" modal header="Tambah Customer Baru" :style="{ width: '400px' }">
         <div class="flex flex-col gap-4 mt-2">
             <div class="flex flex-col gap-2">
                 <label class="font-medium text-slate-700 dark:text-slate-200">Nama Customer / Perusahaan</label>
@@ -81,7 +81,7 @@
     </Dialog>
 
     <!-- Modal Input Produk Terjual -->
-    <Dialog v-model:visible="showProductModal" modal header="Input Produk Terjual" :style="{ width: '450px' }">
+    <Dialog :draggable="false" v-model:visible="showProductModal" modal header="Input Produk Terjual" :style="{ width: '450px' }">
         <div class="flex flex-col gap-4 mt-2">
             <div class="flex flex-col gap-2">
                 <label class="font-medium text-slate-700 dark:text-slate-200">Pilih Customer</label>
@@ -107,7 +107,7 @@
     </Dialog>
 
     <!-- Modal Detail Produk -->
-    <Dialog v-model:visible="showDetailsModal" modal header="Detail Pemeliharaan Produk" :style="{ width: '600px' }">
+    <Dialog :draggable="false" v-model:visible="showDetailsModal" modal header="Detail Pemeliharaan Produk" :style="{ width: '600px' }">
       <div v-if="selectedProduct" class="flex flex-col gap-6 mt-2">
          <div class="grid grid-cols-2 gap-4">
             <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-100">

@@ -295,6 +295,7 @@
 
     <!-- Modal Kirim Produk Baru -->
     <Dialog
+      :draggable="false"
       v-model:visible="showSendModal"
       modal
       header="Kirim Produk Baru"
@@ -413,6 +414,7 @@
 
     <!-- Modal Reject Barang -->
     <Dialog
+      :draggable="false"
       v-model:visible="showRejectModal"
       modal
       header="Input Reject Barang"
@@ -459,6 +461,7 @@
 
     <!-- Modal Riwayat Reject -->
     <Dialog
+      :draggable="false"
       v-model:visible="showHistoryModal"
       modal
       header="Riwayat Reject & Perbaikan"
@@ -519,6 +522,7 @@
 
     <!-- Modal Company Profile -->
     <Dialog
+      :draggable="false"
       v-model:visible="showCompanyModal"
       modal
       header="Profil Perusahaan (Customer)"
@@ -563,22 +567,23 @@
 
     <!-- Modal Gambar -->
     <Dialog
+      :draggable="false"
       v-model:visible="showImageModal"
       modal
       :header="selectedProduct?.name"
-      :style="{ width: 'auto' }"
+      :style="{ width: '500px' }"
     >
       <div v-if="selectedProduct" class="p-2">
-        <img
-          v-if="selectedProduct.image"
-          :src="selectedProduct.image"
-          class="max-w-[600px] max-h-[600px] object-contain rounded"
-        />
-        <div
-          v-else
-          class="w-[300px] h-[200px] bg-slate-100 flex items-center justify-center text-slate-400 rounded"
-        >
-          Tidak ada gambar produk
+        <div class="w-full h-[400px] bg-slate-100 dark:bg-slate-800 flex flex-col items-center justify-center text-slate-400 rounded-lg overflow-hidden">
+          <img
+            v-if="selectedProduct.image"
+            :src="selectedProduct.image"
+            class="w-full h-full object-contain"
+          />
+          <template v-else>
+            <i class="pi pi-image text-4xl mb-2 text-slate-300 dark:text-slate-600"></i>
+            <span>Tidak ada gambar produk</span>
+          </template>
         </div>
       </div>
     </Dialog>

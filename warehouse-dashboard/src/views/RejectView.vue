@@ -49,7 +49,7 @@
     </Card>
 
     <!-- Add Reject Item Modal -->
-    <Dialog v-model:visible="showAddModal" modal header="Add Barang Reject" :style="{ width: '40vw' }" :breakpoints="{ '960px': '75vw', '641px': '90vw' }">
+    <Dialog :draggable="false" v-model:visible="showAddModal" modal header="Add Barang Reject" :style="{ width: '40vw' }" :breakpoints="{ '960px': '75vw', '641px': '90vw' }">
       <div class="flex flex-col gap-4 mt-2">
         <div class="flex flex-col gap-2">
           <label for="itemName" class="font-medium text-slate-700 dark:text-slate-200">Nama Barang</label>
@@ -92,7 +92,7 @@
     </Dialog>
 
     <!-- Process / View Details Modal -->
-    <Dialog v-model:visible="showProcessModal" modal :header="isViewingOnly ? 'Detail Barang Reject' : 'Proses ke Gudang (Submit)'" :style="{ width: '40vw' }" :breakpoints="{ '960px': '75vw', '641px': '90vw' }">
+    <Dialog :draggable="false" v-model:visible="showProcessModal" modal :header="isViewingOnly ? 'Detail Barang Reject' : 'Proses ke Gudang (Submit)'" :style="{ width: '40vw' }" :breakpoints="{ '960px': '75vw', '641px': '90vw' }">
       <div v-if="selectedItem" class="flex flex-col gap-4 mt-2">
         <div class="grid grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-100">
           <div>
