@@ -357,9 +357,36 @@
           <div class="flex flex-col gap-2">
             <label
               class="text-sm font-semibold text-slate-700 dark:text-slate-200"
-              >URL Gambar Produk (Opsional)</label
+              >Upload Gambar Produk (Opsional)</label
             >
-            <InputText v-model="newProduct.image" placeholder="https://..." />
+            <div class="relative flex items-center">
+              <input
+                type="file"
+                accept=".jpg, .jpeg, .png"
+                @change="handleImageUpload"
+                class="block w-full text-sm text-slate-500 dark:text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"
+              />
+            </div>
+            <span class="text-[10px] text-slate-400"
+              >Pilih JPG atau PNG, maksimal 500 KB.</span
+            >
+
+            <div v-if="uploadError" class="text-xs text-red-500 mt-1">
+              {{ uploadError }}
+            </div>
+            <!-- Preview Gambar Upload -->
+            <div
+              v-if="newProduct.image"
+              class="mt-2 w-20 h-20 rounded border border-slate-200 overflow-hidden relative"
+            >
+              <img :src="newProduct.image" class="object-cover w-full h-full" />
+              <button
+                @click="newProduct.image = ''"
+                class="absolute top-0 right-0 bg-red-500 text-white w-5 h-5 flex items-center justify-center rounded-bl hover:bg-red-600"
+              >
+                <i class="pi pi-times text-[10px]"></i>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -574,14 +601,18 @@
       :style="{ width: '500px' }"
     >
       <div v-if="selectedProduct" class="p-2">
-        <div class="w-full h-[400px] bg-slate-100 dark:bg-slate-800 flex flex-col items-center justify-center text-slate-400 rounded-lg overflow-hidden">
+        <div
+          class="w-full h-[400px] bg-slate-100 dark:bg-slate-800 flex flex-col items-center justify-center text-slate-400 rounded-lg overflow-hidden"
+        >
           <img
             v-if="selectedProduct.image"
             :src="selectedProduct.image"
             class="w-full h-full object-contain"
           />
           <template v-else>
-            <i class="pi pi-image text-4xl mb-2 text-slate-300 dark:text-slate-600"></i>
+            <i
+              class="pi pi-image text-4xl mb-2 text-slate-300 dark:text-slate-600"
+            ></i>
             <span>Tidak ada gambar produk</span>
           </template>
         </div>
@@ -637,6 +668,7 @@ const showRejectModal = ref(false);
 const showHistoryModal = ref(false);
 const showCompanyModal = ref(false);
 const showImageModal = ref(false);
+const uploadError = ref("");
 
 const selectedProduct = ref<Product | null>(null);
 const selectedCompany = ref<Company | null>(null);
@@ -791,7 +823,35 @@ const getWarrantySeverity = (product: Product) => {
 
 const openSendModal = () => {
   newProduct.value = defaultNewProduct();
+  uploadError.value = "";
   showSendModal.value = true;
+};
+
+const handleImageUpload = (event: Event) => {
+  uploadError.value = "";
+  const file = (event.target as HTMLInputElement).files?.[0];
+
+  if (!file) return;
+
+  // Cek Tipe File
+  if (!["image/jpeg", "image/png", "image/jpg"].includes(file.type)) {
+    uploadError.value = "Tipe file harus JPG atau PNG!";
+    return;
+  }
+
+  // Cek Ukuran File (Maksimal 500kb)
+  const maxSize = 500 * 1024; // 500 KB dalam bytes
+  if (file.size > maxSize) {
+    uploadError.value = `Ukuran file terlalu besar! (Maks: 500 KB, file Anda: ${(file.size / 1024).toFixed(1)} KB)`;
+    return;
+  }
+
+  // Mengubah gambar ke Base64 URL agar bisa ditampilkan
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    newProduct.value.image = e.target?.result as string;
+  };
+  reader.readAsDataURL(file);
 };
 
 const saveProduct = () => {
