@@ -5,7 +5,7 @@
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
       <div>
         <h1 class="text-[24px] font-bold text-[#1e293b] dark:text-slate-100 leading-tight">
-          Dashboard Tracking Produk
+          Dashboard
         </h1>
         <p class="text-[13px] text-slate-400 dark:text-slate-500 mt-0.5">
           Sistem monitoring produk, reject, dan garansi
@@ -39,12 +39,6 @@
         </div>
         <div>
           <span class="text-[28px] font-bold text-[#1e293b] dark:text-slate-100 leading-none">{{ card.value }}</span>
-          <div class="flex items-center gap-1 mt-1.5">
-            <i :class="`pi ${card.trend >= 0 ? 'pi-arrow-up text-emerald-500' : 'pi-arrow-down text-red-400'} text-[10px]`"></i>
-            <span :class="`text-[11px] font-medium ${card.trend >= 0 ? 'text-emerald-500' : 'text-red-400'}`">
-              {{ Math.abs(card.trend) }}% vs kemarin
-            </span>
-          </div>
         </div>
       </div>
     </div>
@@ -214,15 +208,13 @@ const statCards = ref([
     icon: 'pi pi-send',
     iconBg: 'bg-blue-50 dark:bg-blue-900/20',
     iconColor: 'text-blue-500',
-    trend: 12,
   },
   {
-    label: 'Total Produk Tracking',
+    label: 'Total Produk Terkirim',
     value: 1482,
     icon: 'pi pi-box',
     iconBg: 'bg-indigo-50 dark:bg-indigo-900/20',
     iconColor: 'text-indigo-500',
-    trend: 5,
   },
   {
     label: 'Total Barang Reject',
@@ -230,7 +222,6 @@ const statCards = ref([
     icon: 'pi pi-times-circle',
     iconBg: 'bg-red-50 dark:bg-red-900/20',
     iconColor: 'text-red-500',
-    trend: -3,
   },
   {
     label: 'Dalam Perbaikan',
@@ -238,7 +229,6 @@ const statCards = ref([
     icon: 'pi pi-wrench',
     iconBg: 'bg-amber-50 dark:bg-amber-900/20',
     iconColor: 'text-amber-500',
-    trend: 8,
   },
   {
     label: 'Warranty Expired',
@@ -246,7 +236,6 @@ const statCards = ref([
     icon: 'pi pi-exclamation-triangle',
     iconBg: 'bg-orange-50 dark:bg-orange-900/20',
     iconColor: 'text-orange-500',
-    trend: -1,
   },
   {
     label: 'Reject Bulan Ini',
@@ -254,7 +243,6 @@ const statCards = ref([
     icon: 'pi pi-ban',
     iconBg: 'bg-rose-50 dark:bg-rose-900/20',
     iconColor: 'text-rose-500',
-    trend: -7,
   },
 ]);
 
