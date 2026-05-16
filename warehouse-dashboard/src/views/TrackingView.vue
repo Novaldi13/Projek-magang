@@ -29,7 +29,23 @@
             <div
               class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-500"
             >
-              <i class="pi pi-box text-xl"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-send-horizontal-icon lucide-send-horizontal"
+              >
+                <path
+                  d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z"
+                />
+                <path d="M6 12h16" />
+              </svg>
             </div>
             <div class="flex flex-col">
               <span
@@ -79,7 +95,24 @@
             <div
               class="w-12 h-12 rounded-lg bg-red-50 flex items-center justify-center text-red-500"
             >
-              <i class="pi pi-exclamation-triangle text-xl"></i>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-shield-x-icon lucide-shield-x"
+              >
+                <path
+                  d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"
+                />
+                <path d="m14.5 9.5-5 5" />
+                <path d="m9.5 9.5 5 5" />
+              </svg>
             </div>
             <div class="flex flex-col">
               <span
